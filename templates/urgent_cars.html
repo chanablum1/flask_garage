@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Bootstrap Example</title>
+    <title>Urgent Cars</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -78,9 +78,10 @@
         </div>
       </div>
     </nav>
-    {% if car is not none %}
     <div class="container">
       <div class="row">
+        {% for car in cars %}
+        {% if car.urgent == True %}
         <div class="col-sm-4">
           <div class="panel panel-primary">
             <div class="panel-heading">{{ car.number }}</div>
@@ -97,9 +98,10 @@
             <div class="panel-footer">{{ car.problems }}</div>
           </div>
         </div>
+        {% endif %}
+        {% endfor %}
       </div>
     </div>
-    {% endif %}
     <br />
 
     <br /><br />
